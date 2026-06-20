@@ -5,9 +5,13 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CombatManager : MonoBehaviour
 {
-    [SerializeField] int damageReducer = 10;
-    public enum CombatState { Idle, SelectingTarget }
-    public CombatState currentState = CombatState.Idle;
+    [SerializeField] private int damageReducer = 10;
+    [SerializeField] private int accelerationRate = 10;
+    public enum CombatState { PlayerTurn, SelectingTarget, EnemyTurn }
+    public enum Action { Attack, Accelerate};
+
+    private Action action;
+    public CombatState currentState = CombatState.PlayerTurn;
     private PlayerInputs inputActions;
     private Camera mainCamera;
 
@@ -28,6 +32,16 @@ public class CombatManager : MonoBehaviour
         inputActions.PlayerActions.Disable();
     }
 
+    private void Update()
+    {
+        if (currentState == CombatState.EnemyTurn) 
+        {
+            // Enemy Action
+
+            currentState = CombatState.PlayerTurn;
+        }
+    }
+
     private void EnemySelection_performed(InputAction.CallbackContext obj)
     {
         if (currentState == CombatState.SelectingTarget)
@@ -46,23 +60,25 @@ public class CombatManager : MonoBehaviour
                     int newSpeed = target.GetSpeed() - damage;
                     target.SetSpeed(newSpeed);
 
-                    currentState = CombatState.Idle;
+                    currentState = CombatState.EnemyTurn;
                 }
-                else
-                {
-                    currentState = CombatState.Idle;
-                }
-            }
-            else
-            {
-                currentState = CombatState.Idle;
             }
         }
+        currentState = CombatState.PlayerTurn;
     }
 
     public void OnAttackButtonClicked() 
     {
+        action = Action.Attack;
         currentState = CombatState.SelectingTarget;
+    }
+
+    public void OnAccelerateButtonClicked() 
+    {
+        int newSpeed = MainCharacter.instance.GetSpeed() + accelerationRate;
+        MainCharacter.instance.SetSpeed(newSpeed);
+        action = Action.Accelerate;
+        currentState = CombatState.EnemyTurn;
     }
 
 }

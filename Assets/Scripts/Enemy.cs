@@ -3,6 +3,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private int speed;
+    private int damage = 10;
 
     private void Awake()
     {
@@ -24,5 +25,11 @@ public class Enemy : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
+    }
+
+    public void Attack() 
+    {
+        int playerSpeed = MainCharacter.instance.GetSpeed();
+        MainCharacter.instance.SetSpeed(playerSpeed - damage);
     }
 }
