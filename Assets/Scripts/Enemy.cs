@@ -17,4 +17,12 @@ public class Enemy : MonoBehaviour
     {
         this.speed = newSpeed;
     }
+
+    private void Update()
+    {
+        if (this.speed <= 0)
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
 }
