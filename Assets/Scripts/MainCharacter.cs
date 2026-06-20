@@ -19,4 +19,9 @@ public class MainCharacter : MonoBehaviour
     {
         return this.speed;
     }
+
+    public void SetSpeed(int newSpeed) 
+    {
+        this.speed = newSpeed;
+    }
 }
