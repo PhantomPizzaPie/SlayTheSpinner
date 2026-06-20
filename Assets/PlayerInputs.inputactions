@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "PlayerInputs",
+    "maps": [
+        {
+            "name": "PlayerActions",
+            "id": "d7a3b251-60e7-460e-972a-d6dbad0a489f",
+            "actions": [
+                {
+                    "name": "EnemySelection",
+                    "type": "Button",
+                    "id": "c14d5ba5-5e7e-4216-83bc-88dbe0ab3a1d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0d3802be-d327-4970-9d8d-a90e63fd4e99",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EnemySelection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

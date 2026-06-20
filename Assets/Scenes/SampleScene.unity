@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 418080478}
   - component: {fileID: 418080477}
   - component: {fileID: 418080476}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 494776504}
   - component: {fileID: 494776505}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -838,6 +838,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08967e4c8c8d5d3458be3f3a26a1a6c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainCharacter
+--- !u!1 &1321432655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1321432657}
+  - component: {fileID: 1321432656}
+  m_Layer: 0
+  m_Name: CombatManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1321432656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321432655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7492f816c0e0a54aa9037a7a7284e91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CombatManager
+  damageReducer: 10
+  currentState: 0
+--- !u!4 &1321432657
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321432655}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1338269426
 GameObject:
   m_ObjectHideFlags: 0
@@ -987,7 +1033,7 @@ GameObject:
   - component: {fileID: 1502477294}
   - component: {fileID: 1502477293}
   - component: {fileID: 1502477292}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1212,7 +1258,7 @@ GameObject:
   - component: {fileID: 1802024374}
   - component: {fileID: 1802024376}
   - component: {fileID: 1802024375}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: SpeedIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1352,7 +1398,7 @@ GameObject:
   - component: {fileID: 1913565026}
   m_Layer: 0
   m_Name: MainCamera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1559,9 +1605,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1983361718}
-        m_TargetAssemblyTypeName: AttackButton, Assembly-CSharp
-        m_MethodName: Attack
+      - m_Target: {fileID: 1321432656}
+        m_TargetAssemblyTypeName: CombatManager, Assembly-CSharp
+        m_MethodName: OnAttackButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1634,3 +1680,4 @@ SceneRoots:
   - {fileID: 856026862}
   - {fileID: 385362044}
   - {fileID: 494776504}
+  - {fileID: 1321432657}
