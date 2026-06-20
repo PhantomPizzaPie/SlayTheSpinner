@@ -104,3 +104,9 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# Visual Studio Code
+.vscode/*
+
+# Built Visual Studio Code Extensions
+*.vsix

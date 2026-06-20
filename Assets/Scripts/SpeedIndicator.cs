@@ -14,6 +14,7 @@ public class SpeedIndicator : MonoBehaviour
 
     private void Update()
     {
+        speed = MainCharacter.instance.GetSpeed();
         speedIndicator.text = speed.ToString();
     }
 }
