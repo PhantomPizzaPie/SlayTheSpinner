@@ -48,16 +48,9 @@ public class CombatManager : MonoBehaviour
 
                     currentState = CombatState.Idle;
                 }
-                else
-                {
-                    currentState = CombatState.Idle;
-                }
-            }
-            else
-            {
-                currentState = CombatState.Idle;
             }
         }
+        currentState = CombatState.Idle;
     }
 
     public void OnAttackButtonClicked() 
