@@ -203,9 +203,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 71572024}
-        m_TargetAssemblyTypeName: AccelerateButton, Assembly-CSharp
-        m_MethodName: UpdateSpeed
+      - m_Target: {fileID: 1321432656}
+        m_TargetAssemblyTypeName: CombatManager, Assembly-CSharp
+        m_MethodName: OnAccelerateButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
