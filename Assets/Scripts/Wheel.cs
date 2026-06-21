@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 public class Wheel : MonoBehaviour
 {
 
-    [SerializeField] float minSpinDuration = 3.5f;
+    [SerializeField] float minSpinDuration = 1f;
     [SerializeField] float maxSpinDuration = 5f;
     [SerializeField] float maxSpinAngle = 2000;
     [SerializeField] float minSpinAngle = 1200;
