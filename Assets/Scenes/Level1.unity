@@ -1153,6 +1153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CombatManager
   damageReducer: 10
+  accelerationRate: 10
+  enemies:
+  - {fileID: 494776505}
   currentState: 0
 --- !u!4 &1321432657
 Transform:
@@ -1952,8 +1955,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb19d9ad50a603c4b85790f1e3119841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackButton
-  damageReducer: 10
-  target: {fileID: 494776505}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
