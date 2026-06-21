@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 71572023}
   - component: {fileID: 71572022}
   - component: {fileID: 71572021}
-  - component: {fileID: 71572024}
   m_Layer: 5
   m_Name: AccelerateButton
   m_TagString: Untagged
@@ -253,19 +252,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71572019}
   m_CullTransparentMesh: 1
---- !u!114 &71572024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71572019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c2c9c60e8bc0aa49a9a3c07ce91a50a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AccelerateButton
-  speedAddition: 10
 --- !u!1 &385362041
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,6 +1140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CombatManager
   damageReducer: 10
   accelerationRate: 10
+  enemies:
+  - {fileID: 494776505}
   currentState: 0
 --- !u!4 &1321432657
 Transform:
@@ -1953,8 +1941,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb19d9ad50a603c4b85790f1e3119841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackButton
-  damageReducer: 10
-  target: {fileID: 494776505}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

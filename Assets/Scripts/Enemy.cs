@@ -3,7 +3,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private int speed;
-    private int damage = 10;
+    private int damage = 5;
 
     private void Awake()
     {
