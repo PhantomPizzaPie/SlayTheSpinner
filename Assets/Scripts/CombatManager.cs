@@ -5,6 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CombatManager : MonoBehaviour
 {
+    public static CombatManager instance { get; private set; }
     [SerializeField] int damageReducer = 10;
     public enum CombatState { Idle, SelectingTarget }
     public CombatState currentState = CombatState.Idle;
@@ -15,6 +16,11 @@ public class CombatManager : MonoBehaviour
     {
         inputActions = new PlayerInputs();
         mainCamera = Camera.main;
+
+        if (instance != null && instance != this)
+            Destroy(this);
+        else
+            instance = this;
     }
     private void OnEnable()
     {
@@ -53,7 +59,7 @@ public class CombatManager : MonoBehaviour
         currentState = CombatState.Idle;
     }
 
-    public void OnAttackButtonClicked() 
+    public void SetStateAttack()
     {
         currentState = CombatState.SelectingTarget;
     }
