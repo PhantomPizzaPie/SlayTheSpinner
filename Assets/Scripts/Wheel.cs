@@ -6,14 +6,15 @@ using UnityEngine.UI;
 
 public class Wheel : MonoBehaviour
 {
-    public static Wheel instance { get; private set; }
-    public enum SpinState {Idle, Spinning};
-    public SpinState state;
-    [SerializeField] private Button[] WheelNodes;
+    [SerializeField] Action[] actions;
     [SerializeField] float minSpinDuration = 1f;
     [SerializeField] float maxSpinDuration = 5f;
-    [SerializeField] float maxSpinAngle = 2000;
-    [SerializeField] float minSpinAngle = 1200;
+    [SerializeField] float maxSpinAngle = -1200;
+    [SerializeField] float minSpinAngle = -2000;
+    public static Wheel instance { get; private set; }
+    public enum SpinState { Idle, Spinning };
+    public SpinState state;
+    [SerializeField] private Button[] WheelNodes;
 
     private void Awake()
     {
@@ -29,7 +30,7 @@ public class Wheel : MonoBehaviour
         if (state == SpinState.Spinning) return;
 
         state = SpinState.Spinning;
-        foreach (Button node in WheelNodes) 
+        foreach (Button node in WheelNodes)
         {
             node.interactable = false;
         }
@@ -38,14 +39,19 @@ public class Wheel : MonoBehaviour
         float spinningDuration = Random.Range(minSpinDuration, maxSpinDuration);
         transform.DORotate(new Vector3(0, 0, spinningAngle), spinningDuration, RotateMode.FastBeyond360)
             .SetEase(Ease.OutQuad)
-            .OnComplete(() => 
+            .OnComplete(() =>
             {
                 state = SpinState.Idle;
             });
     }
 
-    public IEnumerator Wait(float Duration) 
+    public IEnumerator Wait(float Duration)
     {
         yield return new WaitForSeconds(Duration);
+    }
+
+    public Action GetRandomAction()
+    {
+        return actions[Random.Range(0, actions.Length)];
     }
 }

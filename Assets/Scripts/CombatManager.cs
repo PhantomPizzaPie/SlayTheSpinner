@@ -7,13 +7,12 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CombatManager : MonoBehaviour
 {
+    public static CombatManager instance { get; private set; }
     [SerializeField] private int damageReducer = 10;
     [SerializeField] private int accelerationRate = 10;
     [SerializeField] private Enemy[] enemies;
     public enum CombatState { PlayerTurn, SelectingTarget, EnemyTurn }
-    public enum Action { Attack, Accelerate};
-
-    private Action action;
+    public enum Action { Attack, Accelerate };
     public CombatState currentState = CombatState.PlayerTurn;
     private PlayerInputs inputActions;
     private Camera mainCamera;
@@ -22,6 +21,11 @@ public class CombatManager : MonoBehaviour
     {
         inputActions = new PlayerInputs();
         mainCamera = Camera.main;
+
+        if (instance != null && instance != this)
+            Destroy(this);
+        else
+            instance = this;
     }
 
     private void OnEnable()
@@ -76,29 +80,27 @@ public class CombatManager : MonoBehaviour
                 }
             }
         }
-        else if (currentState == CombatState.EnemyTurn) 
+        else if (currentState == CombatState.EnemyTurn)
         {
             return;
         }
         currentState = CombatState.PlayerTurn;
     }
 
-    public void OnAttackButtonClicked() 
+    public void SetStateAttack()
     {
-        if (currentState == CombatState.PlayerTurn) 
+        if (currentState == CombatState.PlayerTurn)
         {
-            action = Action.Attack;
             currentState = CombatState.SelectingTarget;
         }
     }
 
     public void OnAccelerateButtonClicked()
     {
-        if (currentState == CombatState.PlayerTurn) 
+        if (currentState == CombatState.PlayerTurn)
         {
             int newSpeed = MainCharacter.instance.GetSpeed() + accelerationRate;
             MainCharacter.instance.SetSpeed(newSpeed);
-            action = Action.Accelerate;
             StartCoroutine(StartEnemyTurn());
         }
     }
