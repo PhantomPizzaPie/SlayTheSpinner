@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackAction
   sprite: {fileID: -2852526341215084341, guid: 9717a10a634877d44913ed42dfbf4921, type: 3}
   backgroundColor: {r: 1, g: 0.0047169924, b: 0.0047169924, a: 1}
-  target: {fileID: 0}
+  minLuck: 1
+  maxLuck: 7

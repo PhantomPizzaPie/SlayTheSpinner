@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,8 +21,13 @@ public class ActionButton : MonoBehaviour
         this.action = action;
 
         Image image = (Image)GetComponent("Image");
-        image.sprite = action.sprite;
-        image.color = action.backgroundColor;
+        image.sprite = action.actionDetails.sprite;
+        image.color = action.actionDetails.backgroundColor;
+
+        Transform textTransform = transform.Find("luckFactorText");
+        TextMeshProUGUI textComponent = textTransform.GetComponent<TextMeshProUGUI>();
+
+        textComponent.text = action.luckFactor.ToString();
     }
     void OnTriggerExit2D()
     {
@@ -30,6 +36,6 @@ public class ActionButton : MonoBehaviour
 
     public void OnClick()
     {
-        action.Act();
+        action.actionDetails.Act(action.luckFactor);
     }
 }

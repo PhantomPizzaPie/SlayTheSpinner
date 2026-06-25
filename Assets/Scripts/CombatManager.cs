@@ -9,13 +9,24 @@ public class CombatManager : MonoBehaviour
 {
     public static CombatManager instance { get; private set; }
     [SerializeField] private int damageReducer = 10;
-    [SerializeField] private int accelerationRate = 10;
     [SerializeField] private Enemy[] enemies;
     public enum CombatState { PlayerTurn, SelectingTarget, EnemyTurn }
     public enum Action { Attack, Accelerate };
     public CombatState currentState = CombatState.PlayerTurn;
     private PlayerInputs inputActions;
     private Camera mainCamera;
+    private int bonusDamage;
+    private int accelerationBonus;
+
+    public void setBonusDamage(int bonusDamage)
+    {
+        this.bonusDamage = bonusDamage;
+    }
+
+    public void setAccelerationBonus(int accelerationBonus)
+    {
+        this.accelerationBonus = accelerationBonus;
+    }
 
     private void Awake()
     {
@@ -71,7 +82,7 @@ public class CombatManager : MonoBehaviour
 
                 if (target != null)
                 {
-                    int damage = MainCharacter.instance.GetSpeed() / damageReducer;
+                    int damage = MainCharacter.instance.GetSpeed() / damageReducer + bonusDamage;
                     int newSpeed = target.GetSpeed() - damage;
                     target.SetSpeed(newSpeed);
 
@@ -99,7 +110,7 @@ public class CombatManager : MonoBehaviour
     {
         if (currentState == CombatState.PlayerTurn)
         {
-            int newSpeed = MainCharacter.instance.GetSpeed() + accelerationRate;
+            int newSpeed = MainCharacter.instance.GetSpeed() + accelerationBonus;
             MainCharacter.instance.SetSpeed(newSpeed);
             StartCoroutine(StartEnemyTurn());
         }

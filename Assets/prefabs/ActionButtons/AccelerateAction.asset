@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AccelerateAction
   sprite: {fileID: -2852526341215084341, guid: 9717a10a634877d44913ed42dfbf4921, type: 3}
   backgroundColor: {r: 0.21937549, g: 1, b: 0, a: 1}
-  speedAddition: 10
+  minLuck: 0
+  maxLuck: 20

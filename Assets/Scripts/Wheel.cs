@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Wheel : MonoBehaviour
 {
-    [SerializeField] Action[] actions;
+    [SerializeField] ActionDetails[] actions;
     [SerializeField] float minSpinDuration = 1f;
     [SerializeField] float maxSpinDuration = 5f;
     [SerializeField] float maxSpinAngle = -1200;
@@ -52,6 +52,7 @@ public class Wheel : MonoBehaviour
 
     public Action GetRandomAction()
     {
-        return actions[Random.Range(0, actions.Length)];
+        ActionDetails selectedActionDetails = actions[Random.Range(0, actions.Length)];
+        return new Action(selectedActionDetails);
     }
 }
