@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25e2f381d2bbf824a85a0ece7e5f7bed, type: 3}
+  m_Name: AccelerateAction
+  m_EditorClassIdentifier: Assembly-CSharp::AccelerateAction
+  sprite: {fileID: -2852526341215084341, guid: 9717a10a634877d44913ed42dfbf4921, type: 3}
+  backgroundColor: {r: 0.21937549, g: 1, b: 0, a: 1}
+  minLuck: 0
+  maxLuck: 20
